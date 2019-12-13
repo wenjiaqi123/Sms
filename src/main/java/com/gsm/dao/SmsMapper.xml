@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsm.dao.SmsDao">
+
+    <!--用户手机号和短信验证码插入临时表-->
+    <insert id="insertUserIphoneNoAndSmsCode" parameterType="SmsCode">
+        insert into sms_code_tmp
+        (iphone_no,
+        sms_code,
+        create_time)
+        values
+        (#{iphoneNo},
+        #{smsCode},
+        now())
+        on duplicate key
+        update
+        sms_code = #{smsCode},
+        create_time = now()
+    </insert>
+
+    <!--根据手机号和验证码查询临时数据-->
+    <select id="selectSmsCodeByIphoneNo" parameterType="SmsCode" resultType="Long">
+        select now() - t.create_time
+        from sms_code_tmp t
+        where t.iphone_no = #{iphoneNo} and t.sms_code = #{smsCode}
+    </select>
+</mapper>
