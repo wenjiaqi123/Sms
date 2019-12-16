@@ -45,7 +45,7 @@ public class SmsServiceImpl implements SmsService {
         Long timeDiff = smsDao.selectSmsCodeByIphoneNo(smsCode);
         BoolVo boolVo = new BoolVo();
         //5分钟有效时间
-        if (timeDiff == null || timeDiff == 0 || timeDiff >= 5 * 60 * 1000) {
+        if (timeDiff == null || timeDiff == 0 || timeDiff >= 5 * 60) {
             boolVo.setFlag(false);
             boolVo.setMsg("校验失败");
         }else {
