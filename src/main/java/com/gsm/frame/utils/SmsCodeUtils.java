@@ -31,7 +31,7 @@ public class SmsCodeUtils {
         request.setAction("SendSms");
         request.putQueryParameter("RegionId", "cn-hangzhou");
         request.putQueryParameter("SignName", SmsCodeConstants.SMS_CODE_SIGNNAME);
-        request.putQueryParameter("TemplateCode", SmsCodeConstants.TEMPLATECODE_IPHONE_REGISTER);
+        request.putQueryParameter("TemplateCode", SmsCodeConstants.TEMPLATECODE_SMS_VERIFY);
         request.putQueryParameter("PhoneNumbers", smsCode.getIphoneNo());
         request.putQueryParameter("TemplateParam", smsCode.getJson());
         try {
