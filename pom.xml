@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.gsm</groupId>
-    <artifactId>sms</artifactId>
+    <artifactId>Sms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sms</name>
+    <name>Sms</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
